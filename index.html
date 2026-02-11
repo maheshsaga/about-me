@@ -1,176 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahesh Saga | Senior Linux Administrator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        header {
-            background: #111827;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-        }
-        header h1 { font-size: 20px; }
-        nav a {
-            color: #cbd5e1;
-            margin-left: 20px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        nav a:hover { color: #38bdf8; }
-        section { padding: 70px 10%; }
-        .hero {
-            text-align: center;
-            padding-top: 100px;
-            padding-bottom: 100px;
-        }
-        .hero h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        .hero p { max-width: 700px; margin: auto; color: #94a3b8; }
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 10px 20px;
-            background: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-        }
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 40px;
-            color: #ffffff;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .card {
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 12px;
-            transition: 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            background: #273449;
-        }
-        .card h3 {
-            margin-bottom: 10px;
-            color: #38bdf8;
-        }
-        .cert {
-            background: #1e293b;
-            padding: 20px;
-            border-left: 4px solid #38bdf8;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #111827;
-            font-size: 14px;
-            color: #94a3b8;
-        }
-        @media(max-width:768px) {
-            .hero h2 { font-size: 28px; }
-            header { flex-direction: column; }
-            nav { margin-top: 10px; }
-        }
-    </style>
-</head>
-<body>
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-<header>
-    <h1>Mahesh Saga</h1>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-slate-900 shadow-md">
+        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+          <h1 className="text-xl font-bold">Mahesh Saga</h1>
+          <nav className="space-x-6 text-sm">
+            <a href="#about" className="hover:text-sky-400">About</a>
+            <a href="#projects" className="hover:text-sky-400">Projects</a>
+            <a href="#contact" className="hover:text-sky-400">Contact</a>
+          </nav>
+        </div>
+      </header>
 
-<section class="hero">
-    <h2>Senior Linux Administrator</h2>
-    <p>
-        Red Hat Certified Engineer (RHCE) and AWS Certified Solutions Architect with 15+ years of experience 
-        managing enterprise Linux infrastructure, cloud environments, server migrations, and automation. 
-        Passionate about building secure, scalable, and highly available systems.
-    </p>
-    <a href="#contact" class="btn">Get In Touch</a>
-</section>
+      {/* Hero Section */}
+      <section className="text-center py-24 px-6">
+        <motion.img
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          src="https://via.placeholder.com/180"
+          alt="Profile"
+          className="w-40 h-40 mx-auto rounded-full border-4 border-sky-400 shadow-xl"
+        />
 
-<section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>
-        I am an experienced Linux professional specializing in RHEL and Ubuntu server administration across physical, virtual, and cloud environments. 
-        I have led data center migrations including P2V, V2V, and lift-and-shift projects. 
-        My expertise includes patch management, OS upgrades, high availability configurations, production support, and vulnerability remediation.
-        I enjoy automating operational tasks using Shell scripting to improve efficiency and system reliability.
-    </p>
-</section>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-4xl font-bold mt-6"
+        >
+          Senior Linux Administrator
+        </motion.h2>
 
-<section id="skills">
-    <h2 class="section-title">Core Skills</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Linux Administration</h3>
-            <p>RHEL, Ubuntu, LVM, RAID, Boot Troubleshooting, User Management, Patch Management, Clustering</p>
+        <p className="mt-4 max-w-2xl mx-auto text-slate-400">
+          RHCE & AWS Certified Solutions Architect with 15+ years of experience in enterprise Linux administration, cloud infrastructure, automation, and high availability systems.
+        </p>
+
+        <div className="mt-6">
+          <Button className="rounded-2xl px-6 py-2 text-base">
+            <a href="/Mahesh_Saga_Resume.pdf" download>Download Resume</a>
+          </Button>
         </div>
-        <div class="card">
-            <h3>Cloud & AWS</h3>
-            <p>EC2, S3, IAM, VPC, ELB, CloudWatch, RDS, Systems Manager</p>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="max-w-6xl mx-auto py-16 px-6">
+        <h3 className="text-3xl font-semibold mb-6">About Me</h3>
+        <p className="text-slate-400 leading-relaxed">
+          I specialize in RHEL and Ubuntu administration across physical, virtual, and AWS cloud environments. I have led large-scale data center migrations including P2V, V2V, and lift-and-shift projects. My expertise includes OS patching, server hardening, high availability clustering, RAID configuration, and production support in 24x7 enterprise environments. I am passionate about automation using Shell scripting to enhance operational efficiency and system stability.
+        </p>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="bg-slate-900 py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-semibold mb-10">Project Showcase</h3>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="rounded-2xl shadow-lg">
+              <CardContent className="p-6">
+                <h4 className="text-xl font-semibold mb-2 text-sky-400">Linux Cluster Setup</h4>
+                <p className="text-slate-400 text-sm">
+                  Designed and configured PCS clusters for high availability. Implemented failover mechanisms, storage configuration, and service monitoring to ensure zero downtime production systems.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="rounded-2xl shadow-lg">
+              <CardContent className="p-6">
+                <h4 className="text-xl font-semibold mb-2 text-sky-400">AWS Migration</h4>
+                <p className="text-slate-400 text-sm">
+                  Led lift-and-shift migrations from on-prem to AWS. Configured EC2, IAM, VPC, Security Groups, and monitoring via CloudWatch while ensuring performance and compliance.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="rounded-2xl shadow-lg">
+              <CardContent className="p-6">
+                <h4 className="text-xl font-semibold mb-2 text-sky-400">Automation Framework</h4>
+                <p className="text-slate-400 text-sm">
+                  Developed Shell scripts to automate patching, health checks, log monitoring, and reporting, reducing manual workload and improving SLA adherence.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-        <div class="card">
-            <h3>Automation</h3>
-            <p>Shell Scripting, Bash, Cron Jobs, Process Optimization, Operational Automation</p>
-        </div>
-        <div class="card">
-            <h3>Infrastructure Operations</h3>
-            <p>Data Center Migrations, P2V, V2V, Production Support, Incident & Change Management</p>
-        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="max-w-6xl mx-auto py-16 px-6">
+        <h3 className="text-3xl font-semibold mb-6">Contact</h3>
+        <p className="text-slate-400">Email: sagamahesh@gmail.com</p>
+        <p className="text-slate-400">Location: Hyderabad, India</p>
+        <p className="text-slate-400">Phone: +91 99669 77369</p>
+      </section>
+
+      <footer className="bg-slate-900 text-center py-6 text-sm text-slate-500">
+        © 2026 Mahesh Saga | Senior Linux Administrator Portfolio
+      </footer>
     </div>
-</section>
-
-<section id="certifications">
-    <h2 class="section-title">Certifications</h2>
-    <div class="cert">
-        <strong>Red Hat Certified Engineer (RHCE)</strong>
-    </div>
-    <div class="cert">
-        <strong>AWS Certified Solutions Architect – Associate</strong>
-    </div>
-</section>
-
-<section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>Email: sagamahesh@gmail.com</p>
-    <p>Location: Hyderabad, India</p>
-    <p>Phone: +91 99669 77369</p>
-</section>
-
-<footer>
-    © 2026 Mahesh Saga | Senior Linux Administrator Portfolio
-</footer>
-
-</body>
-</html>
+  );
+}
