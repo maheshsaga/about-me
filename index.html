@@ -1,109 +1,111 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahesh Saga | Senior Linux Administrator</title>
 
-export default function Portfolio() {
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-slate-900 shadow-md">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-          <h1 className="text-xl font-bold">Mahesh Saga</h1>
-          <nav className="space-x-6 text-sm">
-            <a href="#about" className="hover:text-sky-400">About</a>
-            <a href="#projects" className="hover:text-sky-400">Projects</a>
-            <a href="#contact" className="hover:text-sky-400">Contact</a>
-          </nav>
-        </div>
-      </header>
+  <!-- Tailwind CDN (GitHub Pages Friendly) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-      {/* Hero Section */}
-      <section className="text-center py-24 px-6">
-        <motion.img
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          src="https://via.placeholder.com/180"
-          alt="Profile"
-          className="w-40 h-40 mx-auto rounded-full border-4 border-sky-400 shadow-xl"
-        />
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-4xl font-bold mt-6"
-        >
-          Senior Linux Administrator
-        </motion.h2>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans">
 
-        <p className="mt-4 max-w-2xl mx-auto text-slate-400">
-          RHCE & AWS Certified Solutions Architect with 15+ years of experience in enterprise Linux administration, cloud infrastructure, automation, and high availability systems.
+<!-- Header -->
+<header class="fixed w-full bg-slate-900 shadow-md z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <h1 class="text-lg font-bold">Mahesh Saga</h1>
+    <nav class="space-x-6 text-sm">
+      <a href="#about" class="hover:text-sky-400">About</a>
+      <a href="#projects" class="hover:text-sky-400">Projects</a>
+      <a href="#contact" class="hover:text-sky-400">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-24 text-center px-6">
+  <img src="https://via.placeholder.com/180" alt="Profile" 
+       class="w-40 h-40 mx-auto rounded-full border-4 border-sky-400 shadow-xl" 
+       data-aos="zoom-in">
+
+  <h2 class="text-4xl font-bold mt-6" data-aos="fade-up">
+    Senior Linux Administrator
+  </h2>
+
+  <p class="mt-4 max-w-2xl mx-auto text-slate-400" data-aos="fade-up" data-aos-delay="200">
+    RHCE & AWS Certified Solutions Architect with 15+ years of experience in enterprise Linux administration, cloud infrastructure, high availability clusters, server migrations, and automation.
+  </p>
+
+  <a href="Mahesh_Saga_Resume.pdf" download
+     class="inline-block mt-6 bg-sky-400 text-slate-900 px-6 py-2 rounded-xl font-semibold hover:bg-sky-300 transition"
+     data-aos="fade-up" data-aos-delay="400">
+     Download Resume
+  </a>
+</section>
+
+<!-- About Section -->
+<section id="about" class="max-w-6xl mx-auto py-16 px-6">
+  <h3 class="text-3xl font-semibold mb-6" data-aos="fade-right">About Me</h3>
+  <p class="text-slate-400 leading-relaxed" data-aos="fade-left">
+    I specialize in RHEL and Ubuntu administration across physical, virtual, and AWS cloud environments. I have led data center migrations including P2V, V2V, and lift-and-shift projects. My expertise includes OS patching, server hardening, high availability clustering (PCS), RAID configuration, and 24x7 production support. I am passionate about automation using Shell scripting to improve operational efficiency and infrastructure reliability.
+  </p>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="bg-slate-900 py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-3xl font-semibold mb-10" data-aos="fade-up">Project Showcase</h3>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-sky-500/20 transition" data-aos="zoom-in">
+        <h4 class="text-xl font-semibold mb-2 text-sky-400">Linux Cluster Setup</h4>
+        <p class="text-slate-400 text-sm">
+          Designed and configured PCS clusters with failover mechanisms and shared storage. Ensured high availability and zero downtime for production workloads.
         </p>
+      </div>
 
-        <div className="mt-6">
-          <Button className="rounded-2xl px-6 py-2 text-base">
-            <a href="/Mahesh_Saga_Resume.pdf" download>Download Resume</a>
-          </Button>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="max-w-6xl mx-auto py-16 px-6">
-        <h3 className="text-3xl font-semibold mb-6">About Me</h3>
-        <p className="text-slate-400 leading-relaxed">
-          I specialize in RHEL and Ubuntu administration across physical, virtual, and AWS cloud environments. I have led large-scale data center migrations including P2V, V2V, and lift-and-shift projects. My expertise includes OS patching, server hardening, high availability clustering, RAID configuration, and production support in 24x7 enterprise environments. I am passionate about automation using Shell scripting to enhance operational efficiency and system stability.
+      <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-sky-500/20 transition" data-aos="zoom-in" data-aos-delay="200">
+        <h4 class="text-xl font-semibold mb-2 text-sky-400">AWS Migration</h4>
+        <p class="text-slate-400 text-sm">
+          Executed lift-and-shift migrations from on-prem to AWS. Configured EC2, IAM, VPC, Security Groups, and CloudWatch monitoring while ensuring compliance and performance.
         </p>
-      </section>
+      </div>
 
-      {/* Projects Section */}
-      <section id="projects" className="bg-slate-900 py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl font-semibold mb-10">Project Showcase</h3>
+      <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-sky-500/20 transition" data-aos="zoom-in" data-aos-delay="400">
+        <h4 class="text-xl font-semibold mb-2 text-sky-400">Automation Framework</h4>
+        <p class="text-slate-400 text-sm">
+          Developed Shell scripts for automated patching, health checks, log monitoring, and reporting, reducing manual workload and improving SLA adherence.
+        </p>
+      </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="rounded-2xl shadow-lg">
-              <CardContent className="p-6">
-                <h4 className="text-xl font-semibold mb-2 text-sky-400">Linux Cluster Setup</h4>
-                <p className="text-slate-400 text-sm">
-                  Designed and configured PCS clusters for high availability. Implemented failover mechanisms, storage configuration, and service monitoring to ensure zero downtime production systems.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl shadow-lg">
-              <CardContent className="p-6">
-                <h4 className="text-xl font-semibold mb-2 text-sky-400">AWS Migration</h4>
-                <p className="text-slate-400 text-sm">
-                  Led lift-and-shift migrations from on-prem to AWS. Configured EC2, IAM, VPC, Security Groups, and monitoring via CloudWatch while ensuring performance and compliance.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl shadow-lg">
-              <CardContent className="p-6">
-                <h4 className="text-xl font-semibold mb-2 text-sky-400">Automation Framework</h4>
-                <p className="text-slate-400 text-sm">
-                  Developed Shell scripts to automate patching, health checks, log monitoring, and reporting, reducing manual workload and improving SLA adherence.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="max-w-6xl mx-auto py-16 px-6">
-        <h3 className="text-3xl font-semibold mb-6">Contact</h3>
-        <p className="text-slate-400">Email: sagamahesh@gmail.com</p>
-        <p className="text-slate-400">Location: Hyderabad, India</p>
-        <p className="text-slate-400">Phone: +91 99669 77369</p>
-      </section>
-
-      <footer className="bg-slate-900 text-center py-6 text-sm text-slate-500">
-        © 2026 Mahesh Saga | Senior Linux Administrator Portfolio
-      </footer>
     </div>
-  );
-}
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="max-w-6xl mx-auto py-16 px-6">
+  <h3 class="text-3xl font-semibold mb-6" data-aos="fade-right">Contact</h3>
+  <p class="text-slate-400">Email: sagamahesh@gmail.com</p>
+  <p class="text-slate-400">Location: Hyderabad, India</p>
+  <p class="text-slate-400">Phone: +91 99669 77369</p>
+</section>
+
+<footer class="bg-slate-900 text-center py-6 text-sm text-slate-500">
+  © 2026 Mahesh Saga | Senior Linux Administrator Portfolio
+</footer>
+
+<script>
+  AOS.init({ duration: 1000 });
+</script>
+
+</body>
+</html>
